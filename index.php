@@ -1,18 +1,35 @@
 <?php include './header.php'; ?>
 
+<div class="row justify-content-center">
+    <div class="col-md-8 p-4">
+    <div class="col-md-12 text-center">
+      <h3 class="events">Login As...</h3>
+    </div>
+        <div class="row">
+            <div class="col-sm-6 p-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">User</h5>
+                        <p class="card-text">Want a good experience? Explore US.</p>
+                        <a href="./user/login.php" class="btn btn-success">Log in</a>
+                    </div>
+                </div>
+            </div>
 
-<div class="p-4">
-    <form>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control">
+            <div class="col-sm-6 p-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Serveice Provider</h5>
+                        <p class="card-text">Want to be a businessman?</p>
+                        <a href="#" class="btn btn-success">Click Here</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </div>
 </div>
+
+
 
 <?php include './footer.php'; ?>

@@ -1,7 +1,5 @@
 <?php include '../header.php'; ?>
-
-
-
+<?php include './navbar.php'; ?>
 
 
 <div class="row justify-content-center">
@@ -10,7 +8,6 @@
    </div>
 
     <div class="col-md-6">
-
         <table class="table table-striped table-hover">
             <thead>
                 <tr>

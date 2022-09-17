@@ -1,4 +1,5 @@
 <?php include '../header.php'; ?>
+<?php include './navbar.php'; ?>
 
 <div class="row justify-content-center">
     <div class="col-md-8 p-4">
@@ -11,7 +12,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Parking Name</h5>
                         <p class="card-text">Available Slot: 6</p>
-                        <a href="#" class="btn btn-success">Want to book?</a>
+                        <a href="./booking.php" class="btn btn-success">Want to book?</a>
                     </div>
                 </div>
             </div>
