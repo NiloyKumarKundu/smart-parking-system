@@ -21,7 +21,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Serveice Provider</h5>
                         <p class="card-text">Want to be a businessman?</p>
-                        <a href="#" class="btn btn-success">Click Here</a>
+                        <a href="./service_provider/login.php" class="btn btn-success">Click Here</a>
                     </div>
                 </div>
             </div>
