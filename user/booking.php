@@ -8,7 +8,7 @@
    </div>
 
     <div class="col-md-6">
-        <form class="row g-3" action="booking-successful.php">
+        <form class="row g-3" action="booking_successful.php">
             <div class="col-md-12">
                 <label for="validationCustom01" class="form-label">Booking Date & Time</label>
                 <input type="datetime-local" class="form-control" required>
