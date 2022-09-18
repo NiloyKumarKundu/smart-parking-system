@@ -21,6 +21,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Parking Name</h5>
                         <p class="card-text">Available Slot: 6</p>
+                        <a href="#" class="btn btn-success">See More</a>
                     </div>
                 </div>
             </div>
