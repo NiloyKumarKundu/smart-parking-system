@@ -7,6 +7,17 @@
       <h3 class="events">Booking Records</h3>
    </div>
 
+   <?php 
+    $cuser_id = $_SESSION['cuser_id'];
+//    echo $cuser_id;
+    $query = "SELECT * from booking where cuser_id = '$cuser_id'";    
+    $result = mysqli_query($connection, $query) or die("Failed");
+
+    $count = mysqli_num_rows($result);
+
+    if($count > 0){
+    ?>
+
     <div class="col-md-6">
         <table class="table table-striped table-hover">
             <thead>
@@ -17,6 +28,10 @@
                 </tr>
             </thead>
             <tbody>
+                <?php 
+                    while($row = mysqli_fetch_assoc($result)){
+
+                ?>
                 <tr>
                     <th scope="row">1</th>
                     <td>Mark</td>

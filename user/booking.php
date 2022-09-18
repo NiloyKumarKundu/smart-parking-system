@@ -6,6 +6,7 @@
     include './config.php';
     $user = $_GET['id'];
     $location = $_GET['location'];
+    
 ?>
 
 <div class="row justify-content-center">
@@ -24,7 +25,7 @@
                 <label for="validationCustom01" class="form-label">End Date & Time (Expected)</label>
                 <input type="datetime-local" name="e_date" class="form-control" required>
             </div>
-            <input type="text" name="user_id" value="<?php echo $user ?>" hidden>
+            <input type="text" name="suser_id" value="<?php echo $user ?>" hidden>
             <input type="text" name="location" value="<?php echo $location ?>" hidden>
 
             <div class="col-12">

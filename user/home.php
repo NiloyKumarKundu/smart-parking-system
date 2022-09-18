@@ -9,7 +9,6 @@
 
 <?php
     include './config.php';
-
     
     $query = 'SELECT * FROM parking_spot';
 
