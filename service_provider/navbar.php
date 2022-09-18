@@ -1,4 +1,5 @@
 <?php include '../header.php'; ?>
+<?php session_start(); ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
@@ -12,6 +13,7 @@
         <a class="nav-link active" aria-current="page" href="./home.php">Home</a>
         <a class="nav-link" href="./add_parking_zone.php">Add Parking Zone</a>
         <a class="nav-link" href="./add_parking_slot.php">Add Parking Slot</a>
+        <!-- <a class="nav-link" href="./transactions.php">Transactions</a> -->
         <a class="nav-link" href="./logout.php">Logout</a>
       </div>
     </div>

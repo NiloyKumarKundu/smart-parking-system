@@ -71,7 +71,13 @@
             </tbody>
         </table>
     </div>
-    <?php } ?>
+    <?php 
+    } else {
+    ?>
+    <div class="col-md-10 text-center">
+        <p>No transactions completed yet!</p>
+    </div>
+    <?php }?>
 </div>
 
 <?php include '../footer.php'; ?>

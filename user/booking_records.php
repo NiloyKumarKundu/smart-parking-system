@@ -18,7 +18,7 @@
 
     if($count > 0){
     ?>
-
+    
     <div class="col-md-10">
         <table class="table table-striped table-hover">
             <thead>
@@ -83,8 +83,12 @@
         </table>
     </div>
     <?php 
-    }
+    } else {
     ?>
+    <div class="col-md-10 text-center">
+        <p>You have not booked any slot.</p>
+    </div>
+    <?php }?>
 </div>
 
 <?php include '../footer.php'; ?>

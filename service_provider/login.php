@@ -51,9 +51,8 @@ if (isset($_SESSION['email'])) {
                     session_start();
 
                     $_SESSION['email'] = $row['email'];
-                    $_SESSION['cuser_id'] = $row['cuser_id'];
+                    $_SESSION['suser_id'] = $row['suser_id'];
                     $_SESSION['name'] = $row['name'];
-                    echo $row['name'], $row['cuser_id'], $row['email'];
 
                     header("location: home.php");
                 }
