@@ -27,7 +27,7 @@ include './config.php';
         $result = mysqli_query($connection,$query) or die("Now Failed");
 
         $query = "UPDATE booking set status='paid' where token_nu='$token'";
-        $result = mysqli_query($connection,$query) or die("Now Failed");
+        $result = mysqli_query($connection,$query) or die("Now Failed2");
 
     }
 

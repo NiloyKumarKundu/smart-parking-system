@@ -11,15 +11,24 @@
     include './config.php';
     $cuser_id = $_SESSION['cuser_id'];
 
-    $query = "SELECT * from booking where cuser_id = $cuser_id";    
+    $query = "select s.name, p.cuser_id, p.payment, p.trxid, b.suser_id, b.location, b.start_time, b.end_time
+    from (
+        booking as b
+        INNER join parking_spot as s 
+        on b.suser_id = s.suser_id
+        INNER join payment p 
+        on p.cuser_id = b.cuser_id
+    )
+    where b.status = 'paid' and p.cuser_id = '$cuser_id'
+    GROUP BY p.cuser_id, p.token_nu";
+    
     $result = mysqli_query($connection, $query) or die("Failed");
-
     $count = mysqli_num_rows($result);
 
     if($count > 0){
     ?>
 
-    <div class="col-md-6">
+    <div class="col-md-10">
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
@@ -33,27 +42,17 @@
             </thead>
             <tbody>
 
-
             <?php 
                     $count = 1;
                     while($row = mysqli_fetch_assoc($result)){
-                        $suser_id = $row['suser_id'];
-                        $location = $row['location'];
-                        // echo $suser_id. ' '. $location;
-
-                        $q2 = "SELECT name FROM parking_spot
-                        where suser_id = '$suser_id' and location = '$location';";
-                        $res = mysqli_query($connection, $q2) or die("Failed");
-                        $rows = mysqli_fetch_assoc($res);
-                        $name = $rows['name'];
-                        $rfid = $row['rfid'];
+                        $name = $row['name'];
+                        $trxid = $row['trxid'];
+                        $payment = $row['payment'];
                         $location = $row['location'];
                         $start_time = $row['start_time'];
                         $end_time = $row['end_time'];
-                        $status = $row['status'];
-                        $token = $row['token_nu'];
-                        $suser_id = $row['suser_id'];
-
+                        
+                        
                         $time = "SELECT TIME_TO_SEC(TIMEDIFF('$start_time', '$end_time')) as time;";
                         $time_diff = mysqli_query($connection, $time) or die("Failed");
                         $diffTime = mysqli_fetch_assoc($time_diff);
@@ -62,22 +61,17 @@
                 ?>
                 <tr>
                     <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
+                    <td><?php echo $name; ?></td>
+                    <td><?php echo $start_time; ?></td>
+                    <td><?php echo $end_time; ?></td>
+                    <td><?php echo $payment; ?></td>
+                    <td><?php echo $trxid; ?></td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry the Bird</td>
-                    <td>Thornton</td>
-                </tr>
+                <?php } ?>
             </tbody>
         </table>
     </div>
+    <?php } ?>
 </div>
 
 <?php include '../footer.php'; ?>

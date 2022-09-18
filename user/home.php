@@ -40,10 +40,16 @@
                         $q3 = "select count(*) as c from booking where location = '$loc' and STATUS = 'unpaid'";
                         $res3 = mysqli_query($connection,$q3) or die("Failed");
                         $rows3 = mysqli_fetch_assoc($res3);
-                       
+                        $available_slot = $rows['countr'] - $rows3['c']; 
                         ?>
-                        <p class="card-text">Available Slot: <?php echo $rows['countr'] - $rows3['c']; ?> </p>
+
+                        <p class="card-text">Available Slot: <?php echo $available_slot; ?> </p>
+
+                        <?php if ($available_slot == '0') {   ?>
+                        <a href="./booking.php?id=<?php echo $user; ?>&location=<?php echo $loc; ?>" class="btn btn-success disabled">Want to book?</a>
+                        <?php } else { ?>
                         <a href="./booking.php?id=<?php echo $user; ?>&location=<?php echo $loc; ?>" class="btn btn-success">Want to book?</a>
+                        <?php }?>
                     </div>
                 </div>
             </div>
