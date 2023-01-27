@@ -2,6 +2,36 @@
 <?php include './navbar.php'; ?>
 
 
+<?php
+include './config.php';
+    if (isset($_POST['taka'])) {
+        $taka = $_POST['taka'];
+        $token = $_POST['token'];
+        $cuser_id = $_SESSION['cuser_id'];
+        $suser_id = $_POST['suser_id'];
+        $trxid = $_POST['trxid'];
+        $location = $_POST['location'];
+        echo $suser_id.' ';
+        echo $location;
+        
+        $query = "SELECT * from servo where location='$location' and suser_id='$suser_id';";
+        echo $query;
+        $result = mysqli_query($connection, $query) or die("Failed");
+        $count = mysqli_num_rows($result);
+        if ($count > 0) {
+            $q = "UPDATE servo set status='ON' where suser_id='$suser_id' and location='$location';";
+            $r = mysqli_query($connection,$q) or die("Ekhane faild");
+        } else {
+            $q = "INSERT INTO servo values('$suser_id', '$location', 'ON')";
+            $r = mysqli_query($connection,$q) or die("Okhane Failed");
+        }
+        $query = "INSERT INTO payment VALUES('$cuser_id', '$token', '$taka', '$trxid')";
+        $result = mysqli_query($connection,$query) or die("Now Failed");
+
+    }
+
+?>
+
 <div class="row justify-content-center">
     <div class="col-md-12 text-center pt-4">
       <h3 class="events">Payment Successful.</h3>
